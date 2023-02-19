@@ -33,9 +33,13 @@ label {
   justify-content: end;
 }
 
+.container {
+  padding-bottom: 5rem;
+}
+
 .card {
   display: flex;
-  height: 25rem;
+  height: 28rem;
 }
 
 .card-img-top {
@@ -46,21 +50,49 @@ label {
   text-align: center;
 }
 
-.icons {
-    font-size: 2rem;
-    padding: 1rem;
+fieldset {
+  display: flex;
+  justify-content: center;
 }
 
-h6 {
-    color: white;
-    text-align: end;
+.icons-2 {
+  padding: 3px;
+  font-size: 1rem;
+}
+
+.submit {
+  background-color: #50cbb2;
+  display: block;
+  border-radius: 10px;
+  font-size: 25px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+}
+
+.submit:hover {
+  background-color: crimson;
+}
+
+.card-details {
+  height: 100%;
 }
 
 footer {
-    border-top: 1px solid red;
-    padding-top: 2rem;
+  border-top: 1px solid white;
+  padding-top: 1rem;
 }
 
+h6 {
+  color: white;
+  font-size: 2rem;
+  text-align: end;
+  padding-right: 2rem;
+}
+
+.icons {
+  font-size: 2rem;
+  padding: 10px 25px;
+}
 @media screen and (min-width=320px) {
 }
 
