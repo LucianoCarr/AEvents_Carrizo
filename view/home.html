@@ -10,10 +10,11 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="shortcut icon" href="../public/img/favicon.jfif" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-1 gap-3 border-bottom">
+    <header class="d-flex flex-wrap justify-content-center p-3 mb-1 gap-3 border-bottom">
         <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-5 text-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
                 <use xlink:href="#bootstrap"></use>
@@ -21,20 +22,139 @@
             <span class="fs-4"><img src="../public/img/Logo_Amazing_Events.png" class="logo" alt=""></span>
         </a>
 
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills ">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="./past_events.html" class="nav-link">Past Events</a></li>
             <li class="nav-item"><a href="./upcoming_events.html" class="nav-link">Upcoming Events</a></li>
+            <li class="nav-item"><a href="./past_events.html" class="nav-link">Past Events</a></li>
             <li class="nav-item"><a href="./contact.html" class="nav-link">Contacts</a></li>
             <li class="nav-item"><a href="./stats.html" class="nav-link">Stats</a></li>
         </ul>
     </header>
 
     <main>
-        <h1>home</h1>
+        <!-- Carrusel -->
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h1>Home</h1>
+                </div>
+                <div class="carousel-item">
+                    <h1>Upcoming Events</h1>
+                </div>
+                <div class="carousel-item">
+                    <h1>Past Events</h1>
+                </div>
+                <div class="carousel-item">
+                    <h1>Contacts Us</h1>
+                </div>
+                <div class="carousel-item">
+                    <h1>Stats</h1>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Buscador y categorias -->
+        <fieldset class="A d-flex flex-wrap">
+            <label>Category
+                <input type="checkbox" id="inlineCheckbox1" value="option1">
+            </label>
+            <label>Category
+                <input type="checkbox" id="inlineCheckbox2" value="option2">
+            </label>
+            <label>Category
+                <input type="checkbox" id="inlineCheckbox3" value="option3">
+            </label>
+            <label>Category
+                <input type="checkbox" id="inlineCheckbox4" value="option4">
+            </label>
+            <label>Category
+                <input type="checkbox" id="inlineCheckbox4" value="option4">
+            </label>
+            <label class="button col">
+                <input type="search" class="col">
+                <button id="search-button" type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </label>
+        </fieldset>
+        <!-- Cards -->
+        <div class="row">
+            <div class="col col-md-3 col-12 col-sm-6">
+                <div class="card">
+                    <img src="../public/img/Cinema.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                            to
+                            additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p>Price $100000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-3 col-12 col-sm-6">
+                <div class="card">
+                    <img src="../public/img/Costume_Party.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                            to
+                            additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p>Price $100000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-3 col-12 col-sm-6">
+                <div class="card">
+                    <img src="../public/img/Food_Fair.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                            to
+                            additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p>Price $100000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="co col-md-3 col-12 col-sm-6">
+                <div class="card">
+                    <img src="../public/img/Marathon.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                            to
+                            additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p>Price $100000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
-
+        <div>
+            <a href="" class="me-4 text-reset">
+                <a class="icons"><i class='bx bxs-home'></i></a>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <a class="icons"><i class='bx bx-envelope'></i></a>
+            </a>
+            <a href="" class="me-4 text-reset">
+                <a class="icons"><i class='bx bxs-phone'></i></i></a>
+            </a>
+            <h6>Cohort</h6>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
