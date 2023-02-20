@@ -9,6 +9,10 @@
   height: 8vh;
 }
 
+main {
+  padding-bottom: 5rem;
+}
+
 h1 {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +24,7 @@ h1 {
 fieldset {
   padding: 1rem;
   display: flex;
+  justify-content: center;
 }
 
 label {
@@ -33,9 +38,6 @@ label {
   justify-content: end;
 }
 
-.container {
-  padding-bottom: 5rem;
-}
 
 .card {
   display: flex;
@@ -50,11 +52,6 @@ label {
   text-align: center;
 }
 
-fieldset {
-  display: flex;
-  justify-content: center;
-}
-
 .icons-2 {
   padding: 3px;
   font-size: 1rem;
@@ -62,7 +59,6 @@ fieldset {
 
 .submit {
   background-color: #50cbb2;
-  display: block;
   border-radius: 10px;
   font-size: 25px;
   cursor: pointer;
@@ -77,15 +73,31 @@ fieldset {
   height: 100%;
 }
 
+.table th {
+  background-color: gray;
+}
+
+th {
+  border: 1px solid rgb(121, 209, 136);
+  border-collapse: collapse;
+  color: aqua;
+}
+
+td {
+    border: 1px solid rgb(11, 197, 120);
+}
+
 footer {
   border-top: 1px solid white;
   padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-h6 {
+footer h6 {
   color: white;
   font-size: 2rem;
-  text-align: end;
+  margin-left: auto;
   padding-right: 2rem;
 }
 
