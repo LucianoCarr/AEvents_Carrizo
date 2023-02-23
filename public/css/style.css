@@ -13,6 +13,10 @@ main {
   padding-bottom: 5rem;
 }
 
+.main-cont-stat {
+padding-bottom: 1rem;
+}
+
 h1 {
   display: flex;
   flex-wrap: wrap;
@@ -32,12 +36,19 @@ label {
   cursor: pointer;
 }
 
+.label-contact {
+  padding: 0px;
+}
+
+.message {
+  padding-right: 6px;
+}
+
 .button {
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
 }
-
 
 .card {
   display: flex;
@@ -84,7 +95,7 @@ th {
 }
 
 td {
-    border: 1px solid rgb(11, 197, 120);
+  border: 1px solid rgb(11, 197, 120);
 }
 
 footer {
