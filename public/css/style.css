@@ -63,7 +63,7 @@ label {
   text-align: center;
 }
 
-.icons-2 {
+.icons-contact {
   padding: 3px;
   font-size: 1rem;
 }
@@ -110,6 +110,7 @@ footer h6 {
   font-size: 2rem;
   margin-left: auto;
   padding-right: 2rem;
+  padding-top: 8px;
 }
 
 .icons {
