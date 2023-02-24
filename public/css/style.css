@@ -14,7 +14,7 @@ main {
 }
 
 .main-cont-stat {
-padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 h1 {
@@ -28,6 +28,7 @@ h1 {
 fieldset {
   padding: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -60,6 +61,21 @@ label {
 }
 
 .card-title {
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card-button {
+  border-radius: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.card-button p {
   text-align: center;
 }
 
@@ -117,6 +133,7 @@ footer h6 {
   font-size: 2rem;
   padding: 10px 25px;
 }
+
 @media screen and (min-width=320px) {
 }
 
