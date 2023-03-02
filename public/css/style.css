@@ -19,6 +19,11 @@ header {
   border: 1ps solid #dee2e6;
 }
 
+.nav-link:hover {
+  background-color: #28c049;
+  color: white;
+}
+
 main {
   padding-bottom: 5rem;
 }
