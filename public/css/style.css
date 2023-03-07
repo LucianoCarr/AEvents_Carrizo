@@ -88,6 +88,29 @@ label {
 .card {
   display: flex;
   height: 28rem;
+  width: 15rem;
+  margin: 1rem;
+}
+
+.card-home{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card-past{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-evenly;
+}
+
+.card-upcoming{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: space-evenly;
 }
 
 .card-img-top {
@@ -104,13 +127,12 @@ label {
 
 .card-button {
   border-radius: 10%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  margin-top: 4rem;
+  display: grid;
 }
 
 .card-button p {
-  text-align: center;
+    text-align: center;
 }
 
 .icons-contact {

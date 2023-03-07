@@ -7,7 +7,7 @@ function new_cards (array, idHTML) {
         <h5 class="card-title">${info.name}</h5>
         <p class="card-text">${info.description}</p>
         <div class="card-button">
-        <p>${info.price}</p>
+        <p>Price:$${info.price}</p>
             <a href="./details.html" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
