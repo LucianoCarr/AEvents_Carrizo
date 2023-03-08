@@ -100,8 +100,8 @@ label {
 }
 
 .card-past{
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 flex-direction: row;
 justify-content: space-evenly;
 }
@@ -111,6 +111,18 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: row;
 justify-content: space-evenly;
+}
+
+.card-details {
+  display: flex;
+flex-wrap: wrap;
+justify-content: center;
+width: 100%;
+
+}
+
+.details-card-body{
+  height: 100%;
 }
 
 .card-img-top {
@@ -152,9 +164,6 @@ justify-content: space-evenly;
   background-color: crimson;
 }
 
-.card-details {
-  height: 100%;
-}
 
 .table th {
   background-color: gray;
