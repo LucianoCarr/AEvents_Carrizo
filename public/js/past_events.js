@@ -1,15 +1,6 @@
-function past_filter(array, date_reference) {
-    let past_date=[]
-    for(i =0; i< array.length; i++) {
-        if (array[i].date< date_reference) {
-            past_date.push(array[i])
-        }
-    }
-    return past_date
-}
+let past_data = data.events.filter (past => past.date < data.currentDate)
+                            //"past" se son parametros que se pueden cambiar por cualquier nombre
+past_data.forEach(lluvia => {
+    new_cards(lluvia, "past_card")
+  });
 
-
-let past_data = past_filter(data.events, data.currentDate)
-
-
-new_cards (past_data, "past_card")
