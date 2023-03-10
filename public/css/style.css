@@ -32,7 +32,6 @@ header {
   text-align: center;
 }
 
-
 .nav-link:hover {
   background-color: #28c049;
   color: white;
@@ -87,64 +86,61 @@ label {
 
 .card {
   display: flex;
-  height: 28rem;
   width: 15rem;
   margin: 1rem;
 }
 
-.card-home{
+.card-home {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.card-past{
+.card-past {
   display: flex;
   flex-wrap: wrap;
-flex-direction: row;
-justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.card-upcoming{
-display: flex;
-flex-wrap: wrap;
-flex-direction: row;
-justify-content: space-evenly;
-}
-
-.card-details {
+.card-upcoming {
   display: flex;
-flex-wrap: wrap;
-justify-content: center;
-width: 100%;
-
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.details-card-body{
-  height: 100%;
-}
 
 .card-img-top {
   height: 10rem;
 }
 
-.card-title {
+.card-body {
   text-align: center;
-}
-
-.card-text {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-button {
   border-radius: 10%;
-  margin-top: 4rem;
+  padding-top: 1rem;
   display: grid;
+  margin-top: auto;
 }
 
-.card-button p {
-    text-align: center;
+.details-card-body {
+  height: 100%;
+}
+
+.details-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.details-card-title {
+  text-align: center;
 }
 
 .icons-contact {
@@ -163,7 +159,6 @@ width: 100%;
 .submit:hover {
   background-color: crimson;
 }
-
 
 .table th {
   background-color: gray;
