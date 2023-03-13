@@ -4,8 +4,10 @@ past_data.forEach(pastData => {
     new_cards(pastData, "past_card")
   });
 
+
+  
   let categories_filter_past = [...new Set(past_data.map(event => event.category))];
 
-  categories_filter_past.forEach( category_past=> {     //category_past lo mismo
+  categories_filter_past.forEach( category_past=> {     //"category_past" lo mismo
     new_categories(category_past, "idcategory-past")
   })

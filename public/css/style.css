@@ -27,13 +27,14 @@ header {
   text-align: center;
   border-radius: 5px;
 }
+
 .nav-link {
   color: #0d6efd;
   text-align: center;
 }
 
 .nav-link:hover {
-  background-color: #28c049;
+  background-color: #783f8e;
   color: white;
 }
 
@@ -56,6 +57,7 @@ h1 {
   justify-content: center;
   border-bottom: 1px solid white;
   padding-bottom: 2rem;
+  /* background-color: #532c63; */
 }
 
 fieldset {
@@ -78,7 +80,7 @@ label {
   padding-right: 6px;
 }
 
-.button {
+.search-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
@@ -120,15 +122,29 @@ label {
   text-align: center;
   display: flex;
   flex-direction: column;
+  /* background-color: #783f8e; */
 }
 
+/* .card-body h5 {
+  background-color: #783f8e;
+}
+
+.card-body p {
+  background-color: #783f8e;
+}
+ */
 .card-button {
   border-radius: 10%;
   padding-top: 1rem;
   display: grid;
   margin-top: auto;
+  /* background-color: #783f8e; */
 }
 
+/* .card-button p {
+  background-color: #783f8e;
+}
+ */
 .details-card-body {
   height: 100%;
 }
@@ -165,13 +181,13 @@ label {
 }
 
 th {
-  border: 1px solid rgb(121, 209, 136);
+  border: 1px solid rgb(99, 37, 199);
   border-collapse: collapse;
   color: aqua;
 }
 
 td {
-  border: 1px solid rgb(11, 197, 120);
+  border: 1px solid rgb(113, 11, 197);
 }
 
 footer {
@@ -179,6 +195,7 @@ footer {
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+  /* background-color: #532c63; */
 }
 
 footer h6 {
@@ -187,9 +204,18 @@ footer h6 {
   margin-left: auto;
   padding-right: 2rem;
   padding-top: 8px;
+  /* background-color: #532c63; */
 }
+
+/* footer a.icons {
+  background-color: #532c63;
+} */
 
 .icons {
   font-size: 2rem;
   padding: 10px 25px;
+}
+
+.filtro {
+  display: none;
 }

@@ -11,3 +11,6 @@ data.events.forEach(home => {
   categories_filter.forEach( category=> {
   new_categories(category, "idcategory")
 })
+
+
+
