@@ -1,7 +1,7 @@
-let noche = data.events.filter( data => data.name ) 
-//console.log(noche)
+let details = data.events.filter( data => data.name ) 
+//console.log(details)
 
-let dia = noche.map( data => { 
+let details_aux = details.map( data => { 
     let aux = {}
     aux.image = data.image
     aux.name = data.name
@@ -11,30 +11,33 @@ let dia = noche.map( data => {
     aux.place = data.place
     aux.capacity = data.capacity
     aux.assistance = data.assistance
+    aux.estimate = data.estimate
     aux.price = data.price
     aux._id = data._id
     return aux
 })
-//console.log(dia);
+//console.log(details_aux);
 
 
-let soleado = dia.find(data => data._id === id) 
-console.log(soleado);
+let querySearch = document.location.search  
 
-let sol = document.getElementById("detail_card") 
-//console.log(sol)
+let id = new URLSearchParams(querySearch).get("id")
 
 
-sol.innerHTML = `<div class="card">
-<img src="${data.image}" class="card-img-top" alt="...">
+let details_id = details_aux.find(data => data._id == id) 
+//console.log(details_id);
+
+let detail_card = document.getElementById("detail_card") 
+//console.log(detail_card)
+
+
+detail_card.innerHTML = `<img src="${details_id.image}" class="details-card-body" alt="...">
 <div class="card-body">
-    <p>Name: ${data.name}</p>
-    <p>Date: ${data.date}</p>
-    <p>Description: ${data.description}</p>
-    <p>Category: ${data.category}</p>
-    <p>Place: ${data.place}</p>
-    <p>Capacity: ${data.capaacity}</p>
-    <p>Assistence: ${data.assistence}</p>
-    <p>Price: $${data.price}</p>
-    </div>
+    <p>Name: ${details_id.name}</p>
+    <p>Date: ${details_id.date}</p>
+    <p>Category: ${details_id.category}</p>
+    <p>Place: ${details_id.place}</p>
+    <p>Capacity: ${details_id.capacity}</p>
+    <p>${details_id.assistance?"Assistance: ": "Estimate: " }${details_id.assistance?details_id.assistance:details_id.estimate}</p>
+    <p>Price: $${details_id.price}</p>
 </div>`

@@ -125,6 +125,10 @@ label {
   /* background-color: #783f8e; */
 }
 
+.card-body p {
+  text-align: center;
+}
+
 /* .card-body h5 {
   background-color: #783f8e;
 }
@@ -147,12 +151,15 @@ label {
  */
 .details-card-body {
   height: 100%;
+  width: 50%;
 }
 
-.details-card {
+.card-detail {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 3rem;
+  
 }
 
 .details-card-title {
