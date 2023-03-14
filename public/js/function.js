@@ -16,11 +16,20 @@ array.forEach((info) => {
 }
 
 function new_categories(infocat, idcat) {
-document.getElementById(
-    idcat
-).innerHTML += `<label class="category">${infocat}
+document.getElementById(idcat).innerHTML += `<label class="category">${infocat}
     <input type="checkbox" id="inlineCheckbox" value="${infocat}">
 </label>`;
+};
+
+
+function filtro_por_buscador(array, value) {
+return array.filter((event) => event.name.toLowerCase().includes(value));
+}
+
+function filtro_por_categoria(data, arrayCategoriesFilter) {
+return data.filter(
+    (event) => arrayCategoriesFilter.indexOf(event.category) != -1
+);
 }
 
 function filtro_checkbox(e, array, control) {
@@ -36,14 +45,4 @@ if (e.target.checked) {
     }
 }
 return array;
-}
-
-function filtro_por_categoria(data, arrayCategoriesFilter) {
-return data.filter(
-    (event) => arrayCategoriesFilter.indexOf(event.category) != -1
-);
-}
-
-function filtro_por_buscador(array, value) {
-return array.filter((event) => event.name.toLowerCase().includes(value));
 }

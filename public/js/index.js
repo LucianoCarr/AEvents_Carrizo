@@ -6,11 +6,10 @@ categories_filter.forEach((category) => {
   new_categories(category, "idcategory");
 });
 
-const datos = data.events;
-const id_categoria = document.getElementById("idcategory");
-const categories_filtro = categories_filter;
-const filtro_barra_busqueda = document.getElementById("id_bar");
-
+let datos = data.events;
+let id_categoria = document.getElementById("idcategory");
+let filtro_barra_busqueda = document.getElementById("id_bar");
+let categories_filtro = categories_filter;
 let filtro_categoria = datos;
 let filtro_buscador = datos;
 let filtro_index = [];

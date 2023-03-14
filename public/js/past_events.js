@@ -1,15 +1,14 @@
-const datos = data.events.filter (past => past.date < data.currentDate)
-  let categories_filter_past = Array.from([...new Set(datos.map(event => event.category))]);
+let datos = data.events.filter((past) => past.date < data.currentDate);
 
-  categories_filter_past.forEach( category_past=> {
-    new_categories(category_past, "idcategory-past")
-  })
+let categories_filter_past = Array.from([...new Set(datos.map((event) => event.category)),]);
 
+categories_filter_past.forEach((category_past) => {
+  new_categories(category_past, "idcategory-past");
+});
 
-const id_categoria = document.getElementById("idcategory-past");
-const categories_filtro = categories_filter_past;
-const filtro_barra_busqueda = document.getElementById("id_bar");
-
+let id_categoria = document.getElementById("idcategory-past");
+let filtro_barra_busqueda = document.getElementById("id_bar");
+let categories_filtro = categories_filter_past;
 let filtro_categoria = datos;
 let filtro_buscador = datos;
 let filtro_index = [];
