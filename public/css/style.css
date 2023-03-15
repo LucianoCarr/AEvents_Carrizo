@@ -149,6 +149,11 @@ label {
   background-color: #783f8e;
 }
  */
+.not-found {
+  color: red;
+  font-size: 4rem;
+}
+
 .details-card-body {
   height: 100%;
   width: 50%;

@@ -1,4 +1,8 @@
 function new_cards(array, idHTML) {
+    if(array.length == 0){
+        document.getElementById(idHTML).innerHTML = `<h5 class="not-found">Search Not Found</h5>`
+        return
+    }
 document.getElementById(idHTML).innerHTML = ``;
 array.forEach((info) => {
     document.getElementById(idHTML).innerHTML += `<div class="card">
