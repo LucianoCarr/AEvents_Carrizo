@@ -44,3 +44,19 @@ function category_filter(array) {
     }
     return array
 }
+
+
+// .reduce  devuelve un valor sumado
+
+//.sort ordena
+
+//.map
+
+/* let revenue = array.reduce((acc,item)=>{ */    // acc: acummulador
+/*     return acc + item.revenues           // item: 
+},0) */
+
+
+/* let revenue = array.reduce((acc,item)=>{                //
+},0)
+let lowestPercent =arrayPercent.sort((a,b)=>a.percent-b.percent)[0] */
