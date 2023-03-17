@@ -1,17 +1,19 @@
 let categories_filter_past
 
-let id_categoria = document.getElementById("idcategory-past");
-let filtro_barra_busqueda = document.getElementById("id_bar");
+let data_past
+
+let id_category = document.getElementById("idcategory-past");
+let id_filter_search = document.getElementById("id_bar");
 
 
-filtro_barra_busqueda.addEventListener('input',super_filter)
+id_filter_search.addEventListener('input',super_filter)
 
-id_categoria.addEventListener('change',super_filter)
+id_category.addEventListener('change',super_filter)
 
 
 function super_filter(){
-    let first_filter = filtro_por_buscador(data.events, filtro_barra_busqueda.value)
-    let second_filter = filtro_por_categoria(first_filter)
+    let first_filter = search_filter(data_past, id_filter_search.value)
+    let second_filter = category_filter(first_filter)
     new_cards (second_filter, "past_card")
 }
 
@@ -20,10 +22,10 @@ async function datos_api_past() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
 .then((response) => response.json())
 .then(data => {
-data.events = data.events.filter((past) => past.date < data.currentDate);
+data_past = data.events.filter((past) => past.date < data.currentDate);
 
-categories_filter_past = Array.from([...new Set(data.events.map((event) => event.category))]);
-new_cards(data.events, "past_card")
+categories_filter_past = Array.from([...new Set(data_past.map((event) => event.category))]);
+new_cards(data_past, "past_card")
 
 categories_filter_past.forEach((category_past) => {
   new_categories(category_past, "idcategory-past");
@@ -31,7 +33,7 @@ categories_filter_past.forEach((category_past) => {
 
   return data.events;
 })
-//console.log(data);
+console.log(data_past);
 }
 
 datos_api_past()

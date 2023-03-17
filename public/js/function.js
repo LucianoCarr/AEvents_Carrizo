@@ -26,13 +26,13 @@ document.getElementById(idcat).innerHTML += `<label class="category">${infocat}
 };
 
 
-function filtro_por_buscador(array,value){
+function search_filter(array,value){
     let filter_array = array.filter(event => event.name.toLowerCase().includes(value.toLowerCase()))
     return filter_array
 }
 
 
-function filtro_por_categoria(array) {
+function category_filter(array) {
     let checkboxes = document.querySelectorAll("input[type='checkbox']")
     let array_checks = Array.from(checkboxes).filter(checkbox => checkbox.checked)
     let array_checks_checked = array_checks.map(checkbox => checkbox.value)
@@ -44,4 +44,3 @@ function filtro_por_categoria(array) {
     }
     return array
 }
-

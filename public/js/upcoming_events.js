@@ -1,18 +1,20 @@
 let categories_filter_upcoming 
 
-let id_categoria = document.getElementById("idcategory-upcoming");
-let filtro_barra_busqueda = document.getElementById("id_bar");
+let data_upcoming
+
+let id_category = document.getElementById("idcategory-upcoming");
+let id_filter_search = document.getElementById("id_bar");
 
 
-filtro_barra_busqueda.addEventListener('input',superFiltro)
+id_filter_search.addEventListener('input',super_filter)
 
-id_categoria.addEventListener('change',superFiltro)
+id_category.addEventListener('change',super_filter)
 
 
-function superFiltro(){
-    let primerFiltro = filtro_por_buscador(data.events, filtro_barra_busqueda.value)
-    let segundoFiltro = filtro_por_categoria(primerFiltro)
-    new_cards (segundoFiltro, "upcoming_card")
+function super_filter(){
+  let first_filter = search_filter(data_upcoming, id_filter_search.value)
+  let second_filter = category_filter(first_filter)
+  new_cards (second_filter, "upcoming_card")
 }
 
 
@@ -20,10 +22,10 @@ async function datos_api_upcoming() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
 .then((response) => response.json())
 .then(data => {
-  data.events = data.events.filter((upcoming) => upcoming.date > data.currentDate)
+  data_upcoming = data.events.filter((upcoming) => upcoming.date > data.currentDate)
 
-categories_filter_upcoming = Array.from([...new Set(data.events.map(event => event.category))]);
-new_cards(data.events, "upcoming_card");
+categories_filter_upcoming = Array.from([...new Set(data_upcoming.map(event => event.category))]);
+new_cards(data_upcoming, "upcoming_card");
 
 categories_filter_upcoming.forEach((category_upcoming)=> {
   new_categories(category_upcoming, "idcategory-upcoming")
@@ -31,7 +33,7 @@ categories_filter_upcoming.forEach((category_upcoming)=> {
 
   return data.events;
 })
-console.log(data);
+console.log(data_upcoming);
 }
 
 datos_api_upcoming()
