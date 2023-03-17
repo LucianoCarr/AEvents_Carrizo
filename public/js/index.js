@@ -9,37 +9,29 @@ categories_filter.forEach((category) => {
 let datos = data.events;
 let id_categoria = document.getElementById("idcategory");
 let filtro_barra_busqueda = document.getElementById("id_bar");
-let categories_filtro = categories_filter;
-let filtro_categoria = datos;
-let filtro_buscador = datos;
-let filtro_index = [];
-let filtro_eventos = [];
-let buscador_value = "";
 
 new_cards(datos, "home_card");
 
-id_categoria.addEventListener("change", (e) => {
-  filtro_index = filtro_checkbox(e, filtro_index, categories_filtro);
 
-  if (filtro_buscador != datos) {
-    filtro_categoria = filtro_por_categoria(filtro_buscador, filtro_index);
-    filtro_eventos = filtro_por_buscador(filtro_categoria, buscador_value);
-    new_cards(filtro_eventos, "home_card");
-  } else {
-    filtro_categoria = filtro_por_categoria(datos, filtro_index);
-    new_cards(filtro_categoria, "home_card");
-  }
-});
+filtro_barra_busqueda.addEventListener('input',superFiltro)
 
-filtro_barra_busqueda.addEventListener("input", (e) => {
-  buscador_value = e.target.value.toLowerCase();
+id_categoria.addEventListener('change',superFiltro)
 
-  if (filtro_categoria != datos) {
-    filtro_buscador = filtro_por_buscador(datos, buscador_value);
-    filtro_eventos = filtro_por_categoria(filtro_buscador, filtro_index);
-    new_cards(filtro_eventos, "home_card");
-  } else {
-    filtro_buscador = filtro_por_buscador(datos, buscador_value);
-    new_cards(filtro_buscador, "home_card");
-  }
-});
+function superFiltro(){
+    let primerFiltro = filtro_por_buscador(datos, filtro_barra_busqueda.value)
+    let segundoFiltro = filtro_por_categoria(primerFiltro)
+    new_cards (segundoFiltro, "home_card")
+}
+
+async function datos_api() {
+  let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+.then((response) => response.json())
+.then(data => {
+
+new_cards(data.events, "home_card")
+  return data;
+})
+//console.log(data);
+}
+
+datos_api()

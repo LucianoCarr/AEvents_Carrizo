@@ -26,27 +26,22 @@ document.getElementById(idcat).innerHTML += `<label class="category">${infocat}
 };
 
 
-function filtro_por_buscador(array, value) {
-return array.filter((event) => event.name.toLowerCase().includes(value));
+function filtro_por_buscador(array,value){
+    let filter_array = array.filter(event => event.name.toLowerCase().includes(value.toLowerCase()))
+    return filter_array
 }
 
-function filtro_por_categoria(data, arrayCategoriesFilter) {
-return data.filter(
-    (event) => arrayCategoriesFilter.indexOf(event.category) != -1
-);
-}
 
-function filtro_checkbox(e, array, control) {
-if (array == control) {
-    array = [];
-}
-if (e.target.checked) {
-    array.push(e.target.value);
-} else {
-    array.splice(array.indexOf(e.target.value), 1);
-    if (array[0] == undefined) {
-    array = control;
+function filtro_por_categoria(array) {
+    let checkboxes = document.querySelectorAll("input[type='checkbox']")
+    let array_checks = Array.from(checkboxes).filter(checkbox => checkbox.checked)
+    let array_checks_checked = array_checks.map(checkbox => checkbox.value)
+
+    let array_filter = array.filter(data => array_checks_checked.includes(data.category))
+
+    if(array_checks_checked.length > 0){
+        return array_filter
     }
+    return array
 }
-return array;
-}
+
