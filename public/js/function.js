@@ -46,17 +46,39 @@ function category_filter(array) {
 }
 
 
-// .reduce  devuelve un valor sumado
 
-//.sort ordena
+/* function pintar_tabla_pa(array){
+    let tabla_pa = ''
+    array.forEach(evento => {
+        tabla_pa += `<tr>
+        <td>${evento.category}</td>
+        <td>${evento.price}</td>
+        <td>${evento.assistance?"Assistance: ": "Estimate: " }${evento.assistance?evento.assistance:evento.estimate}</td>
+        </tr>`
+    })
+    table_id_past.innerHTML = tabla_pa
+} */
 
-//.map
+/* function pintar_tabla_up(array){
+    let tabla_up = ''
+    array.forEach(evento => {
+        tabla_up += `<tr>
+        <td>${filtro_index}</td>
+        <td>${evento.price}</td>
+        <td>${evento.assistance?"Assistance: ": "Estimate: " }${evento.assistance?evento.assistance:evento.estimate}</td>
+        </tr>`
+    })
+    table_id_upcoming.innerHTML = tabla_up
+} */
 
-/* let revenue = array.reduce((acc,item)=>{ */    // acc: acummulador
-/*     return acc + item.revenues           // item: 
-},0) */
-
-
-/* let revenue = array.reduce((acc,item)=>{                //
-},0)
-let lowestPercent =arrayPercent.sort((a,b)=>a.percent-b.percent)[0] */
+/* function pintar_tabla(array){
+    let tabla = ''
+    array.forEach(evento => {
+        tabla += `<tr>
+        <td>${evento.nameD}</td>
+        <td>${evento.name}</td>
+        <td>${evento.capacity}</td>
+        </tr>`
+    })
+    table_id.innerHTML = tabla
+} */

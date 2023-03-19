@@ -5,7 +5,6 @@ let data_index
 let id_category = document.getElementById("idcategory");
 let id_filter_search = document.getElementById("id_bar");
 
-/* new_cards(data.events, "home_card"); */
 
 id_filter_search.addEventListener('input',super_filter)
 
@@ -23,6 +22,7 @@ async function datos_api() {
 .then(data => {
 category_home = data.events.map((data) => data.category);
 data_index = data.events
+
 categories_filter = Array.from([...new Set(category_home)]);
 new_cards(data_index, "home_card")
 
@@ -35,5 +35,6 @@ categories_filter.forEach((category) => {
 })
 console.log(data);
 }
+
 
 datos_api()
