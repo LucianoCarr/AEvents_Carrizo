@@ -7,48 +7,56 @@ let filtro_pasado
 
 async function datos_api_past_stat() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
-  .then((response) => response.json())
-  .then(data => {
-    
-    datos_past = data.events.filter((pasado) => pasado.date < data.currentDate);
+    .then((response) => response.json())
+    .then((data) => {
+      datos_past = data.events.filter((pasado) => pasado.date < data.currentDate);
 
-    let categorias = [...new Set(datos_past.map(event => event.category))];
-    let datos_por_categoria = {};
+      let categorias = [...new Set(datos_past.map((event) => event.category))];
+      let datos_por_categoria = {};
 
-    datos_past.forEach(evento => {
-      if (!datos_por_categoria[evento.category]) {
-        datos_por_categoria[evento.category] = {
-          precio_total: 0,
-          asistencia_total: 0,
-          cantidad_eventos: 0
-        };
-      }
-      datos_por_categoria[evento.category].precio_total += evento.price;
-      datos_por_categoria[evento.category].asistencia_total += (evento.assistance + evento.estimate) / 2;
-      datos_por_categoria[evento.category].cantidad_eventos++;
-    });
-    
-    let tabla = "";
-    categorias.forEach((categoria) => {
-      let datos_categoria = datos_por_categoria[categoria];
-      let promedio_asistencia = datos_categoria.asistencia_total / datos_categoria.cantidad_eventos;
-      tabla += `
+      datos_past.forEach((evento) => {
+        if (!datos_por_categoria[evento.category]) {
+          datos_por_categoria[evento.category] = {
+            precio_total: 0,
+            asistencia_total: 0,
+            cantidad_eventos: 0,
+          };
+        }
+
+        datos_por_categoria[evento.category].precio_total += evento.price;
+        if (evento.assistance !== null && evento.estimate !== null) {
+          datos_por_categoria[evento.category].asistencia_total += (evento.assistance + evento.estimate) / 2;
+          datos_por_categoria[evento.category].cantidad_eventos++;
+        }
+      });
+
+      let tabla = "";
+      categorias.forEach((categoria) => {
+        let datos_categoria = datos_por_categoria[categoria];
+        let promedio_asistencia = datos_categoria.cantidad_eventos > 0 ? (datos_categoria.asistencia_total / datos_categoria.cantidad_eventos).toFixed(2) : 0;
+        tabla += `
         <tr>
           <td>${categoria}</td>
           <td>${datos_categoria.precio_total.toFixed(2)}</td>
-          <td>${(promedio_asistencia * 100).toFixed(2)}%</td>
+          <td>${promedio_asistencia * 100}%</td>
         </tr>`;
+      });
+      table_id_past.innerHTML = tabla;
+
+      return categorias;
     });
-    table_id_past.innerHTML = tabla;
-    
-    return categorias;
-  });
 }
 datos_api_past_stat();
 
 
+
+
+
+
+
+
 //API de eventos futuros
-/* let table_id_upcoming = document.getElementById("table_id_upcoming")
+let table_id_upcoming = document.getElementById("table_id_upcoming")
 
 let datos_upcoming
 
@@ -56,34 +64,56 @@ let filtro_futuro
 
 async function datos_api_upcoming_stat() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
-  .then((response) => response.json())
-  .then(data => {
-    datos_upcoming = data.events.filter((futuro) => futuro.date > data.currentDate);
-    
-    filtro_futuro = Array.from([...new Set(datos_upcoming.map(event => event.category))]);
-    pintar_tabla_up(filtro_futuro)
+    .then((response) => response.json())
+    .then((data) => {
+      datos_upcoming = data.events.filter((futuro) => futuro.date > data.currentDate);
+      
+      let categorias = [...new Set(datos_upcoming.map((event) => event.category))];
+      let datos_por_categoria = {};
 
-  return filtro_futuro;
-})
-}
-function pintar_tabla_up(categorias) {
-  let tabla = "";
-  categorias.forEach((categoria) => {
-    tabla += `
-      <tr>
-        <td>${categoria}</td>
-        <td>${categoria}</td>
-        <td>${categoria}</td>
-      </tr>`;
-  });
-  document.getElementById("table_id_upcoming").innerHTML = tabla;
+      datos_upcoming.forEach((evento) => {
+        if (!datos_por_categoria[evento.category]) {
+          datos_por_categoria[evento.category] = {
+            precio_total: 0,
+            asistencia_total: 0,
+            cantidad_eventos: 0,
+          };
+        }
+
+        datos_por_categoria[evento.category].precio_total += evento.price;
+        if (evento.assistance !== null && evento.estimate !== null) {
+          datos_por_categoria[evento.category].asistencia_total += (evento.assistance + evento.estimate) / 2;
+          datos_por_categoria[evento.category].cantidad_eventos++;
+        }
+      });
+
+      let tabla = "";
+      categorias.forEach((categoria) => {
+        let datos_categoria = datos_por_categoria[categoria];
+        let promedio_asistencia = (datos_categoria.cantidad_eventos > 0) ? (datos_categoria.asistencia_total / datos_categoria.cantidad_eventos) : 0;
+        tabla += `
+          <tr>
+            <td>${categoria}</td>
+            <td>${datos_categoria.precio_total.toFixed(2)}</td>
+            <td>${(promedio_asistencia * 100).toFixed(2)}%</td>
+          </tr>`;
+      });
+      table_id_upcoming.innerHTML = tabla;
+
+      return categorias;
+    });
 }
 datos_api_upcoming_stat()
 
- */
+
+
+
+
+
+
 
 //API del index
-/* let table_id = document.getElementById("table_id")
+let table_id = document.getElementById("table_id")
 
 let datos_index
 
@@ -102,6 +132,7 @@ pintar_tabla(filtro_index)
   return filtro_index;
 })
 }
+
 function obtener_evento_menor_asistencia(eventos) {
   let eventoMenorAsistencia = null;
   let porcentajeMenorAsistencia = Infinity;
@@ -181,7 +212,7 @@ function pintar_tabla(array) {
 
 datos_api_stat();
 
- */
+
 
 
 

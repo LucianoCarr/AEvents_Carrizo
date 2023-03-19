@@ -22,7 +22,12 @@ async function data_api_details() {
         aux.image = data.image
         aux.name = data.name
         aux.date = data.date
+        aux.description = data.description
         aux.category = data.category
+        aux.place = data.place
+        aux.capacity = data.capacity
+        aux.assistance = data.assistance
+        aux.estimate = data.estimate
         aux.price = data.price
         aux._id = data._id
         return aux
