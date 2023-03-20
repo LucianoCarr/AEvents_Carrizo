@@ -1,17 +1,18 @@
 // API eventos pasados
 let table_id_past = document.getElementById("table_id_past");
 
-let datos_past;
-
-let filtro_pasado;
-
 async function datos_api_past_stat() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
     .then((response) => response.json())
-    .then((data) => {
+    .catch(err => 
+      {return fetch('./public/data/amazing.json')
+        .then((response) => response.json())}
+      )
+    .then(data => 
+       {return data})
 
-      datos_past = data.events.filter((pasado) => pasado.date < data.currentDate);
-
+       datos_past = data.events.filter((pasado) => pasado.date < data.currentDate);
+       
       let categorias = Array.from([...new Set(datos_past.map((event) => event.category))]);
 
       let datos_por_categoria = categorias;
@@ -47,9 +48,11 @@ async function datos_api_past_stat() {
       table_id_past.innerHTML = tabla;
 
       return categorias;
-    });
 }
+
 datos_api_past_stat()
+
+
 
 
 
@@ -61,17 +64,19 @@ datos_api_past_stat()
 //API de eventos futuros
 let table_id_upcoming = document.getElementById("table_id_upcoming")
 
-let datos_upcoming
-
-let filtro_futuro
-
 async function datos_api_upcoming_stat() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
-    .then((response) => response.json())
-    .then((data) => {
+  .then((response) => response.json())
+  .catch(err => 
+    {return fetch('./public/data/amazing.json')
+      .then((response) => response.json())}
+    )
+  .then(data => 
+     {return data})
+
       datos_upcoming = data.events.filter((futuro) => futuro.date > data.currentDate);
       
-      let categorias = [...new Set(datos_upcoming.map((event) => event.category))];
+      let categorias = Array.from([...new Set(datos_upcoming.map((event) => event.category))]);
     
       let datos_por_categoria = categorias;
       datos_por_categoria = datos_por_categoria.map(categoria =>({
@@ -107,8 +112,8 @@ async function datos_api_upcoming_stat() {
       table_id_upcoming.innerHTML = tabla;
 
       return categorias;
-    });
-}
+    }
+
 datos_api_upcoming_stat()
 
 
@@ -127,8 +132,14 @@ let filtro_index
 
 async function datos_api_stat() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
-.then((response) => response.json())
-.then(data => {
+  .then((response) => response.json())
+  .catch(err => 
+    {return fetch('./public/data/amazing.json')
+      .then((response) => response.json())}
+    )
+  .then(data => 
+     {return data})
+
 
 datos_index = data.events
 
@@ -136,8 +147,8 @@ let filtro_index = [...new Set(datos_index.map(event => event.category))];
 pintar_tabla(filtro_index)
 
   return filtro_index;
-})
 }
+
 
 function obtener_evento_menor_asistencia(eventos) {
   let eventoMenorAsistencia = null;
