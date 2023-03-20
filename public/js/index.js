@@ -19,7 +19,14 @@ function super_filter(){
 async function datos_api() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
 .then((response) => response.json())
-.then(data => {
+.catch(err => 
+  {return fetch('./public/data/amazing.json')
+    .then((response) => response.json())}
+  )
+.then(data => 
+   {return data})
+
+
 category_home = data.events.map((data) => data.category);
 data_index = data.events
 
@@ -32,9 +39,6 @@ categories_filter.forEach((category) => {
 
 
   return data;
-})
-console.log(data);
 }
-
 
 datos_api()

@@ -21,7 +21,13 @@ function super_filter(){
 async function datos_api_upcoming() {
   let data = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
 .then((response) => response.json())
-.then(data => {
+.catch(err => 
+  {return fetch('./public/data/amazing.json')
+    .then((response) => response.json())}
+  )
+.then(data => 
+   {return data})
+
   data_upcoming = data.events.filter((upcoming) => upcoming.date > data.currentDate)
 
 categories_filter_upcoming = Array.from([...new Set(data_upcoming.map(event => event.category))]);
@@ -32,8 +38,6 @@ categories_filter_upcoming.forEach((category_upcoming)=> {
 });
 
   return data.events;
-})
-console.log(data_upcoming);
 }
 
 datos_api_upcoming()
