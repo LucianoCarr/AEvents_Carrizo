@@ -41,7 +41,7 @@ async function datos_api_past_stat() {
         tabla += `
           <tr>
             <td>${categoria.category}</td>
-            <td>$ ${categoria.revenue.toFixed(2)}</td>
+            <td>$ ${categoria.revenue}</td>
             <td>${(percent).toFixed(2)}%</td>
           </tr>`;
       });
@@ -105,7 +105,7 @@ async function datos_api_upcoming_stat() {
         tabla += `
           <tr>
             <td>${categoria.category}</td>
-            <td>$ ${categoria.revenue.toFixed(2)}</td>
+            <td>$ ${categoria.revenue}</td>
             <td>${(percent).toFixed(2)}%</td>
           </tr>`;
       });
@@ -149,80 +149,60 @@ pintar_tabla(filtro_index)
   return filtro_index;
 }
 
-
-function obtener_evento_menor_asistencia(eventos) {
-  let eventoMenorAsistencia = null;
-  let porcentajeMenorAsistencia = Infinity;
-
-  eventos.forEach((evento) => {
-    let asistenciaMenor = evento.assistance ? evento.assistance : evento.estimate;
-    let porcentajeAsistenciaMenor = asistenciaMenor / evento.capacity * 100;
-    if (porcentajeAsistenciaMenor < porcentajeMenorAsistencia) {
-      porcentajeMenorAsistencia = porcentajeAsistenciaMenor;
-      eventoMenorAsistencia = evento;
-    }
-  });
-
-  let nombreEventoMenor = eventoMenorAsistencia.name;
-  let porcentajeMenor = porcentajeMenorAsistencia.toFixed(2) + '%';
-  
-  return {nombreEventoMenor, porcentajeMenor};
-}
-
 function obtener_evento_mayor_asistencia(eventos) {
-  let eventoMayorAsistencia = eventos.reduce((prev, current) => {
-    let asistencia = current.assistance ? current.assistance : current.estimate;
-    let porcentajeAsistencia = asistencia / current.capacity * 100;
-    let prevAsistencia = prev.assistance ? prev.assistance : prev.estimate;
-    let prevPorcentaje = prevAsistencia / prev.capacity * 100;
-    return porcentajeAsistencia > prevPorcentaje ? current : prev;
+  let evento_mayor_asistencia = eventos.reduce((acumulador, objeto) => {
+    let asistencia_mayor = objeto.assistance;
+    let porcentaje_asistencia = asistencia_mayor / objeto.capacity * 100;
+    let anterior_asistencia = acumulador.assistance;
+    let anterior_porcentaje = anterior_asistencia / acumulador.capacity * 100;
+    return porcentaje_asistencia > anterior_porcentaje ? objeto : acumulador;
   });
 
-  let nombreEvento = eventoMayorAsistencia.name;
-  let asistencia = eventoMayorAsistencia.assistance ? eventoMayorAsistencia.assistance : eventoMayorAsistencia.estimate;
-  let porcentaje = (asistencia / eventoMayorAsistencia.capacity * 100).toFixed(2) + '%';
+  let nombre_evento_mayor = evento_mayor_asistencia.name;
+  let asistencia_mayor = evento_mayor_asistencia.assistance;
+  let porcentaje_mayor = (asistencia_mayor / evento_mayor_asistencia.capacity * 100).toFixed(2) + '%';
   
-  return {nombreEvento, porcentaje};
+  return {nombre_evento_mayor, porcentaje_mayor};
 }
 
 function obtener_evento_menor_asistencia(eventos) {
-  let eventoMenorAsistencia = eventos.reduce((prev, current) => {
-    let asistenciaMenor = current.assistance ? current.assistance : current.estimate;
-    let porcentajeAsistenciaMenor = asistenciaMenor / current.capacity * 100;
-    let prevAsistenciaMenor = prev.assistance ? prev.assistance : prev.estimate;
-    let prevPorcentajeMenor = prevAsistenciaMenor / prev.capacity * 100;
-    return porcentajeAsistenciaMenor < prevPorcentajeMenor ? current : prev;
+  let evento_menor_asistencia = eventos.reduce((acumulador, objeto) => {
+    let asistencia_menor = objeto.assistance;
+    let porcentaje_asistencia_menor = asistencia_menor / objeto.capacity * 100;
+    let anterior_asistencia_menor = acumulador.assistance;
+    let anterior_porcentaje_menor = anterior_asistencia_menor / acumulador.capacity * 100;
+    return porcentaje_asistencia_menor < anterior_porcentaje_menor ? objeto : acumulador;
   });
 
-  let nombreEventoMenor = eventoMenorAsistencia.name;
-  let asistenciaMenor = eventoMenorAsistencia.assistance ? eventoMenorAsistencia.assistance : eventoMenorAsistencia.estimate;
-  let porcentajeMenor = (asistenciaMenor / eventoMenorAsistencia.capacity * 100).toFixed(2) + '%';
+  let nombre_evento_menor = evento_menor_asistencia.name;
+  let asistencia_menor = evento_menor_asistencia.assistance;
+  let porcentaje_menor = (asistencia_menor / evento_menor_asistencia.capacity * 100).toFixed(2) + '%';
   
-  return {nombreEventoMenor, porcentajeMenor};
+  return {nombre_evento_menor, porcentaje_menor};
 }
 
 function obtener_evento_mayor_capacidad(eventos) {
-  let eventoMayorCapacidad = eventos.reduce((prev, current) => {
-    return current.capacity > prev.capacity ? current : prev;
+  let evento_mayor_capacidad = eventos.reduce((acumulador, objeto) => {
+    return objeto.capacity > acumulador.capacity ? objeto : acumulador;
   });
 
-  let nombreEventoMayorCapacidad = eventoMayorCapacidad.name;
-  let capacidadMayor = eventoMayorCapacidad.capacity;
+  let nombre_evento_mayor_capacidad = evento_mayor_capacidad.name;
+  let mayor_capacidad = evento_mayor_capacidad.capacity;
   
-  return {nombreEventoMayorCapacidad, capacidadMayor};
+  return {nombre_evento_mayor_capacidad, mayor_capacidad};
 }
 
 function pintar_tabla(array) {
   let tabla = "";
   let eventos = datos_index.filter(event => array.includes(event.category));
-  let mayorAsistencia = obtener_evento_mayor_asistencia(eventos);
-  let menorAsistencia = obtener_evento_menor_asistencia(eventos);
-  let mayorCapacidad = obtener_evento_mayor_capacidad(eventos);
+  let mayor_asistencia = obtener_evento_mayor_asistencia(eventos);
+  let menor_asistencia = obtener_evento_menor_asistencia(eventos);
+  let mayor_capacidad = obtener_evento_mayor_capacidad(eventos);
   tabla += `
     <tr>
-    <td>${mayorAsistencia.nombreEvento} (${mayorAsistencia.porcentaje})</td>
-    <td>${menorAsistencia.nombreEventoMenor} (${menorAsistencia.porcentajeMenor})</td>
-    <td>${mayorCapacidad.nombreEventoMayorCapacidad} (${mayorCapacidad.capacidadMayor})</td>
+    <td>${mayor_asistencia.nombre_evento_mayor} (${mayor_asistencia.porcentaje_mayor})</td>
+    <td>${menor_asistencia.nombre_evento_menor} (${menor_asistencia.porcentaje_menor})</td>
+    <td>${mayor_capacidad.nombre_evento_mayor_capacidad} (${mayor_capacidad.mayor_capacidad})</td>
     </tr>`;
   table_id.innerHTML = tabla;
 }
