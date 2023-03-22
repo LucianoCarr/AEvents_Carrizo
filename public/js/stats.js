@@ -178,9 +178,11 @@ function obtener_evento_menor_asistencia(eventos) {
 }
 
 function obtener_evento_mayor_capacidad(eventos) {
-  let evento_mayor_capacidad = eventos.reduce((acumulador, objeto) => {
-    return objeto.capacity > acumulador.capacity ? objeto : acumulador;
-  });
+  let evento_de_mayor_capacidad = eventos.sort((acumulador, objeto) => 
+    objeto.capacity < acumulador.capacity ? -1 : 1)
+    let evento_mayor_capacidad = evento_de_mayor_capacidad.find(capacidad => {
+      return capacidad
+    });
 
   let nombre_evento_mayor_capacidad = evento_mayor_capacidad.name;
   let mayor_capacidad = evento_mayor_capacidad.capacity;
