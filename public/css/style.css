@@ -1,6 +1,222 @@
 * {
-    padding: 0;
-    margin: 0;
-    background-color: black;
-    color: aliceblue;
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  /* background-image: URL(/public/img/blurry-gradient-haikei.png); */
+  color: aliceblue;
+}
+
+.logo {
+  height: 8vh;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+  border: 1ps solid #dee2e6;
+}
+
+.navbar-nav .nav-link.active {
+  color: white;
+}
+
+.nav-link.active {
+  text-align: center;
+  border-radius: 5px;
+}
+
+.nav-link {
+  color: #0d6efd;
+  text-align: center;
+}
+
+.nav-link:hover {
+  background-color: #783f8e;
+  color: white;
+}
+
+.navbar-toggler-icon {
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+main {
+  padding-bottom: 5rem;
+}
+
+.main-contact-stat {
+  padding-bottom: 1rem;
+}
+
+h1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 1px solid white;
+  padding-bottom: 2rem;
+}
+
+fieldset {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+label {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.label-contact {
+  padding: 0px;
+}
+
+.message {
+  padding-right: 6px;
+}
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.card {
+  display: flex;
+  width: 15rem;
+  margin: 1rem;
+}
+
+.card-home {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card-past {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card-upcoming {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+
+.card-img-top {
+  height: 10rem;
+}
+
+.card-body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body p {
+  text-align: center;
+}
+
+.card-button {
+  border-radius: 10%;
+  padding-top: 1rem;
+  display: grid;
+  margin-top: auto;
+}
+
+.not-found {
+  color: red;
+  font-size: 4rem;
+}
+
+.detail-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-card-body {
+  height: 100%;
+  width: 60%;
+  margin-bottom: 2rem;
+}
+
+.card-detail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3rem;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.details-card-title {
+  text-align: center;
+}
+
+.icons-contact {
+  padding: 3px;
+  font-size: 1rem;
+}
+
+.submit {
+  background-color: #50cbb2;
+  border-radius: 10px;
+  font-size: 25px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+}
+
+.submit:hover {
+  background-color: crimson;
+}
+
+.table th {
+  background-color: gray;
+}
+
+th {
+  border: 1px solid rgb(99, 37, 199);
+  border-collapse: collapse;
+  color: aqua;
+}
+
+td {
+  border: 1px solid rgb(113, 11, 197);
+}
+
+footer {
+  border-top: 1px solid white;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+footer h6 {
+  color: white;
+  font-size: 2rem;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-top: 8px;
+}
+
+.icons {
+  font-size: 2rem;
+  padding: 10px 25px;
+}
+
+.filtro {
+  display: none;
 }
